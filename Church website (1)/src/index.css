@@ -1,0 +1,599 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:ital,wght@0,500;0,600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f6f3eb;
+  --color-white: #ffffff;
+  --color-ink: #17251f;
+  --color-evergreen: #173d32;
+  --color-fern: #577a65;
+  --color-gold: #d9b66f;
+  --color-sand: #eeddb7;
+  --color-muted: #68716c;
+  --color-line: #dcded8;
+  --font-sans: "DM Sans", sans-serif;
+  --font-serif: "Newsreader", serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+.site-container {
+  width: min(100% - 2rem, 1240px);
+  margin-inline: auto;
+}
+
+.hero-overlay {
+  background:
+    linear-gradient(90deg, rgba(12, 28, 23, 0.93) 0%, rgba(12, 28, 23, 0.58) 52%, rgba(12, 28, 23, 0.28) 100%),
+    linear-gradient(0deg, rgba(12, 28, 23, 0.45), transparent 50%);
+}
+
+.display-title,
+.section-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+}
+
+.display-title {
+  font-size: clamp(3.9rem, 8vw, 7.7rem);
+  line-height: 0.9;
+}
+
+.section-title {
+  font-size: clamp(2.8rem, 5vw, 4.65rem);
+  line-height: 0.98;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 3.25rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0 1.4rem;
+  font-size: 0.86rem;
+  font-weight: 700;
+  transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-light {
+  background: white;
+  color: var(--color-evergreen);
+}
+
+.button-gold {
+  background: var(--color-gold);
+  color: var(--color-evergreen);
+}
+
+.button-gold:hover {
+  background: var(--color-sand);
+}
+
+.button-dark {
+  background: var(--color-evergreen);
+  color: white;
+}
+
+.button-dark:hover {
+  background: var(--color-ink);
+}
+
+.button-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: white;
+}
+
+.button-ghost:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link {
+  position: relative;
+  color: rgba(255, 255, 255, 0.82);
+  transition: color 180ms ease;
+}
+
+.nav-link:hover {
+  color: white;
+}
+
+.nav-link::after {
+  position: absolute;
+  right: 0;
+  bottom: -0.45rem;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.menu-button {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.28rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.menu-button span {
+  height: 1px;
+  width: 1.15rem;
+  background: white;
+  transition: all 180ms ease;
+}
+
+.church-logo {
+  border: 1px solid rgba(238, 221, 183, 0.6);
+  box-shadow: 0 0.35rem 1.4rem rgba(0, 0, 0, 0.2);
+}
+
+.image-frame {
+  position: relative;
+  padding: 0 1rem 1rem 0;
+}
+
+.image-frame::after {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  height: 45%;
+  width: 45%;
+  content: "";
+  background: var(--color-gold);
+}
+
+.about-stack-wrap {
+  padding: 0 2.25rem 2.75rem 0;
+}
+
+.about-stack {
+  position: relative;
+  min-height: 35rem;
+  isolation: isolate;
+}
+
+.about-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  background: var(--color-evergreen);
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 1.5rem 3.5rem rgba(23, 37, 31, 0.16);
+  transform-origin: center bottom;
+  transition:
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 450ms ease,
+    filter 450ms ease;
+}
+
+.about-card:focus-visible,
+.about-stack-next:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+.about-card-0 {
+  z-index: 3;
+  transform: translate(0, 0) rotate(-1deg);
+}
+
+.about-card-1 {
+  z-index: 2;
+  filter: saturate(0.8);
+  transform: translate(1.5rem, 1.5rem) rotate(3deg) scale(0.975);
+}
+
+.about-card-2 {
+  z-index: 1;
+  filter: saturate(0.65);
+  transform: translate(2.8rem, 2.8rem) rotate(6deg) scale(0.94);
+}
+
+.about-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-card-0:hover img {
+  transform: scale(1.035);
+}
+
+.about-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(15, 37, 30, 0.82), transparent 58%);
+}
+
+.about-card-copy {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-card-copy span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sand);
+}
+
+.about-card-copy strong {
+  margin-top: 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 2.65rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.about-stack-next {
+  position: absolute;
+  z-index: 4;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  gap: 0.65rem;
+  border: 0;
+  padding: 0 1.25rem;
+  background: var(--color-gold);
+  color: var(--color-evergreen);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 0.9rem 2rem rgba(23, 37, 31, 0.16);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.about-stack-next:hover {
+  background: var(--color-sand);
+  transform: translateY(-2px);
+}
+
+.about-stack-count {
+  margin-top: 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+
+.about-stack-count span {
+  color: var(--color-evergreen);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 0.35rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.ministry-card {
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background-color 220ms ease;
+}
+
+.leadership-card {
+  position: relative;
+  min-height: 25rem;
+  transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.leadership-card:hover {
+  z-index: 1;
+  background: var(--color-cream);
+  transform: translateY(-0.35rem);
+}
+
+.leadership-mark {
+  display: flex;
+  height: 2.5rem;
+  align-items: flex-end;
+  gap: 0.22rem;
+}
+
+.leadership-mark i {
+  display: block;
+  width: 0.22rem;
+  background: var(--color-gold);
+  transform: rotate(30deg);
+}
+
+.leadership-mark i:first-child {
+  height: 1.25rem;
+}
+
+.leadership-mark i:nth-child(2) {
+  height: 1.75rem;
+}
+
+.leadership-mark i:last-child {
+  height: 2.25rem;
+}
+
+.kenya-photo-wrap {
+  position: relative;
+  min-height: 34rem;
+  padding: 0 1.25rem 1.25rem 0;
+}
+
+.kenya-photo-wrap::after {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  height: 70%;
+  width: 70%;
+  content: "";
+  background: var(--color-evergreen);
+}
+
+.kenya-location {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  min-width: 10.5rem;
+  flex-direction: column;
+  padding: 1.35rem 1.6rem;
+  background: var(--color-gold);
+  color: var(--color-evergreen);
+}
+
+.kenya-location span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.kenya-location strong {
+  margin-top: 0.15rem;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.kenya-pattern {
+  opacity: 0.32;
+  background-image: radial-gradient(var(--color-gold) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  mask-image: linear-gradient(90deg, transparent, black);
+}
+
+.mission-number {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-fern);
+}
+
+.play-button {
+  display: flex;
+  height: 5rem;
+  width: 5rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--color-gold);
+  color: var(--color-evergreen);
+  transition: transform 180ms ease, background-color 180ms ease;
+}
+
+.play-button:hover {
+  transform: translate(-50%, -50%) scale(1.08);
+  background: var(--color-sand);
+}
+
+.event-row {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1.5rem 0;
+}
+
+.pastor-photo {
+  object-position: center 24%;
+}
+
+.church-gallery {
+  display: grid;
+  gap: 1rem;
+}
+
+.gallery-card {
+  position: relative;
+  min-height: 18rem;
+  overflow: hidden;
+  background: var(--color-evergreen);
+}
+
+.gallery-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-card::after {
+  position: absolute;
+  inset: 40% 0 0;
+  content: "";
+  background: linear-gradient(transparent, rgba(15, 37, 30, 0.8));
+  pointer-events: none;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.035);
+}
+
+.gallery-card figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1.5rem;
+  bottom: 1.4rem;
+  left: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  color: white;
+}
+
+.footer-heading {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sand);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-top: 1.25rem;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.footer-links a {
+  transition: color 180ms ease;
+}
+
+.footer-links a:hover {
+  color: white;
+}
+
+@media (min-width: 768px) {
+  .ministry-card {
+    border-right: 1px solid rgba(255, 255, 255, 0.15);
+    border-bottom: 0;
+    padding: 2rem;
+  }
+
+  .ministry-card:first-child {
+    padding-left: 0;
+  }
+
+  .ministry-card:last-child {
+    border-right: 0;
+  }
+
+  .church-gallery {
+    min-height: 38rem;
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .gallery-card-feature {
+    grid-row: 1 / span 2;
+  }
+}
+
+@media (max-width: 767px) {
+  .hero {
+    min-height: 720px;
+  }
+
+  .display-title {
+    font-size: clamp(3.4rem, 16vw, 5rem);
+  }
+
+  .service-card {
+    display: none;
+  }
+
+  .church-hero-photo {
+    object-position: 47% center;
+  }
+
+  .about-stack-wrap {
+    padding-right: 1.5rem;
+  }
+
+  .about-stack {
+    min-height: 28rem;
+  }
+
+  .about-card-1 {
+    transform: translate(0.8rem, 1rem) rotate(2.5deg) scale(0.98);
+  }
+
+  .about-card-2 {
+    transform: translate(1.5rem, 2rem) rotate(5deg) scale(0.96);
+  }
+
+  .about-stack-next {
+    right: -0.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

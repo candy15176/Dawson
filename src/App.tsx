@@ -1,19 +1,19 @@
 import { useState, type ReactNode } from "react";
+import childrenEggHunt from "./assets/children-egg-hunt.jpg";
+import churchPhoto from "./assets/dawson-church.png";
+import churchLogo from "./assets/dawson-logo.png";
+import churchFamilyCollage from "./assets/church-family-collage.png";
+import communityTable from "./assets/community-table.jpeg";
+import eggHunt from "./assets/egg-hunt.jpg";
+import fellowshipMeal from "./assets/fellowship-meal.jpg";
+import pastorBill from "./assets/pastor-bill.jpg";
+import sanctuaryWedding from "./assets/sanctuary-wedding.jpg";
 
-const worshipPhoto =
-  "https://images.unsplash.com/photo-1767897672315-1e551e4eabfb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxzbWFsbCUyMGNvdW50cnklMjBjaHVyY2glMjBydXJhbCUyMGNvbW11bml0eSUyMGV4dGVyaW9yfGVufDF8fHx8MTc5MTUyNjUxNXww&ixlib=rb-4.1.0&q=85&w=1800";
-const communityPhoto =
-  "https://images.unsplash.com/photo-1625283518288-00362afc8663?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmcmllbmRzJTIwY29tbXVuaXR5JTIwcGljbmljJTIwZGl2ZXJzZSUyMHBlb3BsZSUyMGxhdWdoaW5nJTIwb3V0ZG9vcnN8ZW58MXx8fHwxNzkxNTI2MzQ5fDA&ixlib=rb-4.1.0&q=85&w=1200";
-const tablePhoto =
-  "https://images.unsplash.com/photo-1683540991277-e10df62d77d4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwyfHxzbWFsbCUyMGNodXJjaCUyMGNvbW11bml0eSUyMGZyaWVuZHMlMjBzaGFyZWQlMjBtZWFsJTIwbmVpZ2hib3JzJTIwd2FybSUyMGNhbmRpZHxlbnwxfHx8fDE3OTE2NDEwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const kitchenPhoto =
-  "https://images.unsplash.com/photo-1764174861962-5b109301b1ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFsbCUyMGNodXJjaCUyMGNvbW11bml0eSUyMGZyaWVuZHMlMjBzaGFyZWQlMjBtZWFsJTIwbmVpZ2hib3JzJTIwd2FybSUyMGNhbmRpZHxlbnwxfHx8fDE3OTE2NDEwMDl8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const messagePhoto =
-  "https://images.unsplash.com/photo-1682263557065-192c50c79d30?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxzbWFsbCUyMGNodXJjaCUyMGNvbmdyZWdhdGlvbiUyMHN1bmRheSUyMG1vcm5pbmclMjB3b29kZW4lMjBwZXdzfGVufDF8fHx8MTc5MTUyNjUyN3ww&ixlib=rb-4.1.0&q=85&w=1200";
 const kenyaPhoto =
   "https://images.unsplash.com/photo-1776039325185-8fd3d46af4e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxLZW55YSUyMGFkdWx0JTIwZWR1Y2F0aW9uJTIwY29tbXVuaXR5JTIwY2xhc3Nyb29tJTIwbWVuJTIwbGVhcm5pbmclMjBOYWlyb2JpfGVufDF8fHx8MTc5MTY0MTM2Mnww&ixlib=rb-4.1.0&q=80&w=1080";
 const directionsUrl =
   "https://www.google.com/maps/dir/?api=1&destination=2044%20N%20Darlington%20Pl%2C%20Tulsa%2C%20OK%2074115";
+const facebookUrl = "https://www.facebook.com/profile.php?id=61575957022220";
 
 function Icon({
   children,
@@ -46,16 +46,6 @@ function ArrowIcon() {
   );
 }
 
-function LeafMark({ light = false }: { light?: boolean }) {
-  return (
-    <div className={`leaf-mark ${light ? "leaf-mark-light" : ""}`} aria-hidden="true">
-      <span />
-      <span />
-      <i />
-    </div>
-  );
-}
-
 const ministries = [
   {
     title: "Sunday School",
@@ -75,29 +65,31 @@ const ministries = [
 ];
 
 const events = [
-  { month: "JUN", day: "15", title: "Fellowship Potluck", meta: "Sunday · After worship · Fellowship Hall" },
-  { month: "JUN", day: "18", title: "Wednesday Prayer", meta: "Wednesday · 6:30 PM · Church sanctuary" },
-  { month: "JUN", day: "28", title: "Community Serve Day", meta: "Saturday · 9:00 AM · Meet at the church" },
+  { title: "Fellowship Potluck", meta: "First Sunday of the month · After worship · Fellowship Hall" },
+  { title: "Testimony Tuesday & Bible Study", meta: "Every Tuesday · 5:30 PM · Freeway Cafe`" },
+  { title: "Wednesday Dinner & Bible Study", meta: "Every Wednesday · 6:00 PM · Church Fellowship Hall" }, 
+  { title: "Friday Womens Bible Study", meta: "Every Friday · 6:00 PM · Church Fellowship Hall"},
+  { month: "OCT", day: "30", title: "Trunk or Treat", meta: "Saturday · 4:00-8:00 PM · Meet at the church" },
 ];
 
 const aboutStories = [
   {
-    image: communityPhoto,
-    alt: "Friends enjoying an afternoon together",
+    image: fellowshipMeal,
+    alt: "Dawson friends gathered around a table for a meal",
     kicker: "Familiar faces",
-    title: "Known by name",
+    title: "Around the table",
   },
   {
-    image: tablePhoto,
-    alt: "Friends gathered around a table for a shared meal",
-    kicker: "Room at the table",
-    title: "Meals shared",
+    image: childrenEggHunt,
+    alt: "Children from Dawson walking together during an Easter egg hunt",
+    kicker: "Growing together",
+    title: "Our children",
   },
   {
-    image: kitchenPhoto,
-    alt: "Neighbors spending time together in a kitchen",
-    kicker: "Life together",
-    title: "Showing up",
+    image: communityTable,
+    alt: "Dawson church friends waving from a restaurant table",
+    kicker: "Room for one more",
+    title: "Shared meals",
   },
 ];
 
@@ -118,10 +110,51 @@ const leadership = [
     number: "03",
     role: "Children's church",
     title: "Mrs. Kay Phillips",
-    text: "Helping our children know they are loved while teaching them the Bible with warmth, patience, and joy.",
+    text: "Helping our children know they are loved while teaching them the Bible with warmth, patience, and joy. She is also the heart of the church, and prepares the meals for our bible studies and fellowship dinners",
   },
-];
+  {
+    number: "4",
+    role: "Church Treasurer",
+    title: "Kat",
+    text: "Serves as church accountant, offering a helping hand wherever needed, and singing."
+  },
 
+];
+const members = [
+  {
+
+    number: "1",
+    role: "Church Bulletin",
+    title: "Cheri Hieronymus",
+    text: "Uses her Creative talents designing church Bulletin and various other creative projects for the church."
+  },
+  {
+    number: "2",
+    role: "Welcome committee and sound booth",
+    title: "Gary Burks",
+    text: " Always ready to welcome new faces, and get mics setup and ready for service. ",
+   },
+  {
+    number: "3 & 4",
+    role: "Church Aide's",
+    title: "James & Misti", 
+    text: "Misti is always smiling and ready to help with whatever the church asks of them assisting with church upkeep, meal preperation and assists Mrs. Kay. James offer his service any many areas helping members with car trouble, fixing things around the church, taking care of the lawn with wife Misti.",
+  },
+
+  {
+    number: "5 & 6",
+    role: "Outreach",
+    title: "Dillan & Lindsey",
+    text: "New to the church and already jumping in head first, they were put in charge of this years Trunk or Treat event.",
+  },
+  {
+    number: "7 & 8",
+    role: "Website & Welcome committee",
+    title: "Kenny & Candy",
+    text: "Candy is responsible for our website & Facbook page she is also on the welcome committee and Kenny is her loving support",
+  }
+  
+]
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeAboutCard, setActiveAboutCard] = useState(0);
@@ -131,7 +164,7 @@ export default function App() {
       <header className="absolute inset-x-0 top-0 z-30 border-b border-white/20 text-white">
         <nav className="site-container flex h-24 items-center justify-between" aria-label="Main navigation">
           <a className="flex items-center gap-3" href="#top" aria-label="Dawson Free Will Baptist Church home">
-            <LeafMark light />
+            <img alt="" className="church-logo h-14 w-14 shrink-0 rounded-full object-cover" src={churchLogo} />
             <span className="text-sm font-bold tracking-tight sm:hidden">DAWSON FWB</span>
             <span className="hidden text-lg font-bold tracking-tight sm:inline">DAWSON FREE WILL BAPTIST CHURCH</span>
           </a>
@@ -139,6 +172,7 @@ export default function App() {
           <div className="hidden items-center gap-6 text-sm font-semibold lg:flex">
             <a className="nav-link" href="#about">About</a>
             <a className="nav-link" href="#leadership">Leadership</a>
+            <a className="nav-link" href="members">Member Involvement</a>
             <a className="nav-link" href="#ministries">Ministries</a>
             <a className="nav-link" href="#kenya">Kenya</a>
             <a className="nav-link" href="#messages">Messages</a>
@@ -168,6 +202,7 @@ export default function App() {
               {[
                 ["About", "about"],
                 ["Leadership", "leadership"],
+                ["Members","members"],
                 ["Ministries", "ministries"],
                 ["Kenya mission", "kenya"],
                 ["Messages", "messages"],
@@ -188,9 +223,9 @@ export default function App() {
       <main>
         <section className="hero relative flex min-h-[780px] items-end overflow-hidden text-white" id="top">
           <img
-            alt="A small white church with a steeple in the countryside"
-            className="absolute inset-0 h-full w-full object-cover"
-            src={worshipPhoto}
+            alt="The front of Dawson Free Will Baptist Church in Tulsa"
+            className="church-hero-photo absolute inset-0 h-full w-full object-cover"
+            src={churchPhoto}
           />
           <div className="hero-overlay absolute inset-0" />
           <div className="site-container relative z-10 grid w-full gap-12 pb-28 pt-40 lg:grid-cols-[1fr_340px] lg:items-end">
@@ -201,7 +236,7 @@ export default function App() {
                 a place to call home.
               </h1>
               <p className="mt-7 max-w-xl text-lg leading-8 text-white/80">
-                We&apos;re a small church of friends and neighbors learning to follow Jesus, care for one another, and love our community well.
+                We are a group of imperfect individuals learning to serve our perfect God, help each other and love our community well.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <a className="button button-gold" href="#visit">Join us Sunday <ArrowIcon /></a>
@@ -214,8 +249,8 @@ export default function App() {
 
             <div className="service-card border-l-2 border-gold pl-7">
               <p className="text-xs font-bold uppercase tracking-[0.18em] text-sand">This Sunday</p>
-              <p className="mt-3 font-serif text-3xl">10:30 AM</p>
-              <p className="mt-2 text-sm leading-6 text-white/70">Sunday school at 9:30 AM<br />Coffee is always on</p>
+              <p className="mt-3 font-serif text-3xl">10:45 AM</p>
+              <p className="mt-2 text-sm leading-6 text-white/70">Coffee, Donuts & Fellowship at 9:45 AM</p>
               <a className="mt-5 inline-flex items-center gap-2 text-sm font-bold text-sand" href="#visit">
                 What to expect <ArrowIcon />
               </a>
@@ -303,6 +338,36 @@ export default function App() {
             <a className="text-link mt-9" href="#visit">Come meet us Sunday <ArrowIcon /></a>
           </div>
         </section>
+        
+        <section className="border-y border-line bg-white py-24 lg:py-28" id="member">
+          <div className="site-container">
+            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+              <div>
+                <p className="eyebrow text-fern">Member Involvement</p>
+                <h2 className="section-title mt-4">Our Members Get Involved.</h2>
+              </div>
+              <p className="max-w-2xl text-lg leading-8 text-muted lg:justify-self-end">
+                Where ever there is a need our members step up volunteer or offer their skills and talents to fill it. This is not just a church it's a family.                
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-px overflow-hidden border border-line bg-line md:grid-cols-3">
+              {members.map((members) => (
+                <article className="members-card bg-white p-8 lg:p-10" key={members.title}>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-bold tracking-widest text-fern">{members.number}</span>
+                    <span className="members-mark" aria-hidden="true"><i /><i /><i /></span>
+                  </div>
+                  <p className="mt-16 text-xs font-bold uppercase tracking-[0.18em] text-fern">{members.role}</p>
+                  <h3 className="mt-3 font-serif text-3xl">{members.title}</h3>
+                  <p className="mt-4 leading-7 text-muted">{members.text}</p>
+                </article>
+              ))}
+            </div>
+
+            <a className="text-link mt-9" href="#serve">Learn more from our Members<ArrowIcon /></a>
+          </div>
+        </section>
 
         <section className="bg-evergreen py-24 text-white lg:py-28" id="ministries">
           <div className="site-container">
@@ -382,9 +447,9 @@ export default function App() {
           <div className="site-container">
             <div className="grid overflow-hidden bg-white shadow-[0_24px_70px_rgba(27,44,36,0.10)] lg:grid-cols-[1.15fr_0.85fr]">
               <div className="relative min-h-[420px] overflow-hidden">
-                <img alt="A small congregation gathered in church pews" className="absolute inset-0 h-full w-full object-cover transition duration-700 hover:scale-105" src={messagePhoto} />
+                <img alt="Pastor Bill Phillips speaking from the pulpit" className="pastor-photo absolute inset-0 h-full w-full object-cover transition duration-700 hover:scale-105" src={pastorBill} />
                 <div className="absolute inset-0 bg-ink/25" />
-                <a aria-label="Play latest message" className="play-button absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" href="#messages">
+                <a aria-label="Visit Dawson Free Will Baptist Church on Facebook" className="play-button absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2" href={facebookUrl} rel="noreferrer" target="_blank">
                   <Icon size={26}><path d="m9 7 7 5-7 5V7Z" fill="currentColor" /></Icon>
                 </a>
               </div>
@@ -395,8 +460,8 @@ export default function App() {
                 <p className="mt-6 leading-7 text-muted">
                   Finding God&apos;s goodness in ordinary work, familiar places, and the people right in front of us.
                 </p>
-                <a className="button button-dark mt-8 self-start" href="#messages">
-                  Watch message <ArrowIcon />
+                <a className="button button-dark mt-8 self-start" href={facebookUrl} rel="noreferrer" target="_blank">
+                  Visit Facebook <ArrowIcon />
                 </a>
               </div>
             </div>
@@ -408,7 +473,7 @@ export default function App() {
             <div>
               <p className="eyebrow text-fern">What&apos;s happening</p>
               <h2 className="section-title mt-4">There&apos;s always something to look forward to.</h2>
-              <a className="text-link mt-8" href="#events">View all events <ArrowIcon /></a>
+              <a className="text-link mt-8" href={facebookUrl} rel="noreferrer" target="_blank">See our latest updates <ArrowIcon /></a>
             </div>
             <div className="divide-y divide-line border-y border-line">
               {events.map((event) => (
@@ -426,6 +491,35 @@ export default function App() {
                   </span>
                 </a>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-cream py-24 lg:py-28" id="church-life">
+          <div className="site-container">
+            <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+              <div>
+                <p className="eyebrow text-fern">Life at Dawson</p>
+                <h2 className="section-title mt-4 max-w-3xl">Real people. Shared joy. God at work.</h2>
+              </div>
+              <a className="button button-dark self-start md:self-auto" href={facebookUrl} rel="noreferrer" target="_blank">
+                Follow us on Facebook <ArrowIcon />
+              </a>
+            </div>
+
+            <div className="church-gallery mt-14">
+              <figure className="gallery-card gallery-card-feature">
+                <img alt="A collection of wedding and church family moments at Dawson" src={churchFamilyCollage} />
+                <figcaption>Celebrating life together</figcaption>
+              </figure>
+              <figure className="gallery-card">
+                <img alt="A wedding ceremony inside Dawson Free Will Baptist Church" src={sanctuaryWedding} />
+                <figcaption>Making sacred promises</figcaption>
+              </figure>
+              <figure className="gallery-card">
+                <img alt="Children gathering Easter eggs outdoors" src={eggHunt} />
+                <figcaption>Joy for every generation</figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -451,7 +545,10 @@ export default function App() {
         <div className="site-container">
           <div className="grid gap-12 border-b border-white/10 pb-16 md:grid-cols-2 lg:grid-cols-[1.3fr_0.7fr_0.7fr_1fr]">
             <div>
-              <a className="flex items-center gap-3" href="#top"><LeafMark light /><span className="text-lg font-bold">DAWSON FREE WILL BAPTIST CHURCH</span></a>
+              <a className="flex items-center gap-4" href="#top">
+                <img alt="" className="church-logo h-20 w-20 shrink-0 rounded-full object-cover" src={churchLogo} />
+                <span className="text-lg font-bold">DAWSON FREE WILL BAPTIST CHURCH</span>
+              </a>
               <p className="mt-6 max-w-xs leading-7 text-white/55">Loving God, caring for one another, and serving our neighbors.</p>
             </div>
             <div>
@@ -460,15 +557,15 @@ export default function App() {
             </div>
             <div>
               <p className="footer-heading">Connect</p>
-              <div className="footer-links"><a href="#visit">Plan a visit</a><a href={directionsUrl} rel="noreferrer" target="_blank">Directions</a><a href="#give">Give</a><a href="#ministries">Serve</a></div>
+              <div className="footer-links"><a href="#visit">Plan a visit</a><a href={directionsUrl} rel="noreferrer" target="_blank">Directions</a><a href={facebookUrl} rel="noreferrer" target="_blank">Facebook</a><a href="#ministries">Serve</a></div>
             </div>
             <div>
               <p className="footer-heading">Sundays</p>
-              <p className="mt-5 leading-7 text-white/55">Sunday school · 9:30 AM<br />Worship · 10:30 AM<br />2044 N Darlington Pl<br />Tulsa, OK 74115</p>
+              <p className="mt-5 leading-7 text-white/55">Coffee & Donuts fellowship · 9:45 AM<br />Worship · 10:45 AM<br />2044 N Darlington Pl<br />Tulsa, OK 74115</p>
             </div>
           </div>
           <div className="flex flex-col justify-between gap-3 pt-8 text-xs text-white/40 sm:flex-row">
-            <p>© 2025 Dawson Free Will Baptist Church.</p>
+            <p>© 2026 Dawson Free Will Baptist Church.</p>
             <p>Small church. Open doors. Everyone welcome.</p>
           </div>
         </div>

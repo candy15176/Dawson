@@ -1,0 +1,10 @@
+{
+  "description": "Connects church members and visitors with service times, events, sermons, and community resources to foster engagement and spiritual growth.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
