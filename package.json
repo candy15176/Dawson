@@ -1,18 +1,8 @@
 {
-  "name": "dawson",
-  "version": "1.0.0",
+  "name": "figma-make-app",
   "private": true,
-  "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/candy15176/Dawson#readme",
-  "bugs": {
-    "url": "https://github.com/candy15176/Dawson/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/candy15176/Dawson.git"
-  },
-
+  "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
