@@ -162,43 +162,9 @@ a {
   transition: all 180ms ease;
 }
 
-.leaf-mark {
-  position: relative;
-  height: 2.4rem;
-  width: 2.4rem;
-  color: var(--color-evergreen);
-}
-
-.leaf-mark span {
-  position: absolute;
-  top: 0.18rem;
-  height: 1.55rem;
-  width: 0.9rem;
-  border: 2px solid currentColor;
-  border-radius: 100% 0 100% 0;
-}
-
-.leaf-mark span:first-child {
-  left: 0.25rem;
-  transform: rotate(-38deg);
-}
-
-.leaf-mark span:nth-child(2) {
-  right: 0.25rem;
-  transform: scaleX(-1) rotate(-38deg);
-}
-
-.leaf-mark i {
-  position: absolute;
-  bottom: 0.2rem;
-  left: 50%;
-  height: 1.25rem;
-  width: 2px;
-  background: currentColor;
-}
-
-.leaf-mark-light {
-  color: white;
+.church-logo {
+  border: 1px solid rgba(238, 221, 183, 0.6);
+  box-shadow: 0 0.35rem 1.4rem rgba(0, 0, 0, 0.2);
 }
 
 .image-frame {
@@ -217,6 +183,138 @@ a {
   background: var(--color-gold);
 }
 
+.about-stack-wrap {
+  padding: 0 2.25rem 2.75rem 0;
+}
+
+.about-stack {
+  position: relative;
+  min-height: 35rem;
+  isolation: isolate;
+}
+
+.about-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  background: var(--color-evergreen);
+  color: white;
+  cursor: pointer;
+  text-align: left;
+  box-shadow: 0 1.5rem 3.5rem rgba(23, 37, 31, 0.16);
+  transform-origin: center bottom;
+  transition:
+    transform 650ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 450ms ease,
+    filter 450ms ease;
+}
+
+.about-card:focus-visible,
+.about-stack-next:focus-visible {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
+.about-card-0 {
+  z-index: 3;
+  transform: translate(0, 0) rotate(-1deg);
+}
+
+.about-card-1 {
+  z-index: 2;
+  filter: saturate(0.8);
+  transform: translate(1.5rem, 1.5rem) rotate(3deg) scale(0.975);
+}
+
+.about-card-2 {
+  z-index: 1;
+  filter: saturate(0.65);
+  transform: translate(2.8rem, 2.8rem) rotate(6deg) scale(0.94);
+}
+
+.about-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about-card-0:hover img {
+  transform: scale(1.035);
+}
+
+.about-card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(15, 37, 30, 0.82), transparent 58%);
+}
+
+.about-card-copy {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  left: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-card-copy span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-sand);
+}
+
+.about-card-copy strong {
+  margin-top: 0.25rem;
+  font-family: var(--font-serif);
+  font-size: 2.65rem;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+
+.about-stack-next {
+  position: absolute;
+  z-index: 4;
+  right: -1.5rem;
+  bottom: -1.5rem;
+  display: inline-flex;
+  min-height: 3.5rem;
+  align-items: center;
+  gap: 0.65rem;
+  border: 0;
+  padding: 0 1.25rem;
+  background: var(--color-gold);
+  color: var(--color-evergreen);
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 0.9rem 2rem rgba(23, 37, 31, 0.16);
+  transition: background-color 180ms ease, transform 180ms ease;
+}
+
+.about-stack-next:hover {
+  background: var(--color-sand);
+  transform: translateY(-2px);
+}
+
+.about-stack-count {
+  margin-top: 1.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-muted);
+}
+
+.about-stack-count span {
+  color: var(--color-evergreen);
+}
+
 .text-link {
   display: inline-flex;
   align-items: center;
@@ -231,6 +329,101 @@ a {
   padding: 2rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   transition: background-color 220ms ease;
+}
+
+.leadership-card {
+  position: relative;
+  min-height: 25rem;
+  transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.leadership-card:hover {
+  z-index: 1;
+  background: var(--color-cream);
+  transform: translateY(-0.35rem);
+}
+
+.leadership-mark {
+  display: flex;
+  height: 2.5rem;
+  align-items: flex-end;
+  gap: 0.22rem;
+}
+
+.leadership-mark i {
+  display: block;
+  width: 0.22rem;
+  background: var(--color-gold);
+  transform: rotate(30deg);
+}
+
+.leadership-mark i:first-child {
+  height: 1.25rem;
+}
+
+.leadership-mark i:nth-child(2) {
+  height: 1.75rem;
+}
+
+.leadership-mark i:last-child {
+  height: 2.25rem;
+}
+
+.kenya-photo-wrap {
+  position: relative;
+  min-height: 34rem;
+  padding: 0 1.25rem 1.25rem 0;
+}
+
+.kenya-photo-wrap::after {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  height: 70%;
+  width: 70%;
+  content: "";
+  background: var(--color-evergreen);
+}
+
+.kenya-location {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  min-width: 10.5rem;
+  flex-direction: column;
+  padding: 1.35rem 1.6rem;
+  background: var(--color-gold);
+  color: var(--color-evergreen);
+}
+
+.kenya-location span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.kenya-location strong {
+  margin-top: 0.15rem;
+  font-family: var(--font-serif);
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+.kenya-pattern {
+  opacity: 0.32;
+  background-image: radial-gradient(var(--color-gold) 1px, transparent 1px);
+  background-size: 1.5rem 1.5rem;
+  mask-image: linear-gradient(90deg, transparent, black);
+}
+
+.mission-number {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: var(--color-fern);
 }
 
 .play-button {
@@ -255,6 +448,107 @@ a {
   align-items: center;
   gap: 1.4rem;
   padding: 1.5rem 0;
+}
+
+.letter-frame {
+  position: relative;
+  padding: 0 1rem 1rem 0;
+  filter: drop-shadow(0 1.5rem 2.5rem rgba(6, 18, 14, 0.28));
+  transform: rotate(1deg);
+  transition: transform 240ms ease;
+}
+
+.letter-frame::after {
+  position: absolute;
+  z-index: -1;
+  right: 0;
+  bottom: 0;
+  height: 72%;
+  width: 72%;
+  content: "";
+  background: var(--color-gold);
+}
+
+.letter-frame:hover {
+  transform: rotate(0) translateY(-0.35rem);
+}
+
+.kay-quote {
+  text-wrap: balance;
+}
+
+.memorial-card {
+  box-shadow: 0 1.25rem 3.5rem rgba(23, 37, 31, 0.08);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.memorial-card:hover {
+  transform: translateY(-0.35rem);
+  box-shadow: 0 1.6rem 4rem rgba(23, 37, 31, 0.12);
+}
+
+.memorial-image-wrap {
+  height: 31rem;
+  padding: 1rem;
+  background: var(--color-white);
+}
+
+.event-feature {
+  display: grid;
+  margin-top: 2.5rem;
+  border: 1px solid var(--color-line);
+}
+
+.event-flyer-wrap {
+  min-height: 34rem;
+  padding: 1rem;
+  background: var(--color-evergreen);
+}
+
+.pastor-photo {
+  object-position: center 24%;
+}
+
+.church-gallery {
+  display: grid;
+  gap: 1rem;
+}
+
+.gallery-card {
+  position: relative;
+  min-height: 18rem;
+  overflow: hidden;
+  background: var(--color-evergreen);
+}
+
+.gallery-card img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gallery-card::after {
+  position: absolute;
+  inset: 40% 0 0;
+  content: "";
+  background: linear-gradient(transparent, rgba(15, 37, 30, 0.8));
+  pointer-events: none;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.035);
+}
+
+.gallery-card figcaption {
+  position: absolute;
+  z-index: 1;
+  right: 1.5rem;
+  bottom: 1.4rem;
+  left: 1.5rem;
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  color: white;
 }
 
 .footer-heading {
@@ -296,6 +590,20 @@ a {
   .ministry-card:last-child {
     border-right: 0;
   }
+
+  .church-gallery {
+    min-height: 38rem;
+    grid-template-columns: 1.15fr 0.85fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .gallery-card-feature {
+    grid-row: 1 / span 2;
+  }
+
+  .event-feature {
+    grid-template-columns: minmax(20rem, 0.8fr) 1.2fr;
+  }
 }
 
 @media (max-width: 767px) {
@@ -310,6 +618,38 @@ a {
   .service-card {
     display: none;
   }
+
+  .church-hero-photo {
+    object-position: 47% center;
+  }
+
+  .about-stack-wrap {
+    padding-right: 1.5rem;
+  }
+
+  .about-stack {
+    min-height: 28rem;
+  }
+
+  .about-card-1 {
+    transform: translate(0.8rem, 1rem) rotate(2.5deg) scale(0.98);
+  }
+
+  .about-card-2 {
+    transform: translate(1.5rem, 2rem) rotate(5deg) scale(0.96);
+  }
+
+  .about-stack-next {
+    right: -0.75rem;
+  }
+
+  .memorial-image-wrap {
+    height: 28rem;
+  }
+
+  .event-flyer-wrap {
+    min-height: 28rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -321,5 +661,6 @@ a {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }

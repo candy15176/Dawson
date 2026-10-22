@@ -1,13 +1,18 @@
 import { useState, type ReactNode } from "react";
 import childrenEggHunt from "./assets/children-egg-hunt.jpg";
+import barbaraWebsterMemorial from "./assets/barbara-webster-memorial.png";
 import churchPhoto from "./assets/dawson-church.png";
 import churchLogo from "./assets/dawson-logo.png";
 import churchFamilyCollage from "./assets/church-family-collage.png";
 import communityTable from "./assets/community-table.jpeg";
+import danielNorgrenMemorial from "./assets/daniel-norgren-memorial.jpg";
 import eggHunt from "./assets/egg-hunt.jpg";
 import fellowshipMeal from "./assets/fellowship-meal.jpg";
+import haroldMcKaughanMemorial from "./assets/harold-mckaughan-memorial.jpg";
+import letterToMrsKay from "./assets/letter-to-mrs-kay.jpg";
 import pastorBill from "./assets/pastor-bill.jpg";
 import sanctuaryWedding from "./assets/sanctuary-wedding.jpg";
+import trunkOrTreatFlyer from "./assets/trunk-or-treat-flyer.jpg";
 
 const kenyaPhoto =
   "https://images.unsplash.com/photo-1776039325185-8fd3d46af4e6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHw0fHxLZW55YSUyMGFkdWx0JTIwZWR1Y2F0aW9uJTIwY29tbXVuaXR5JTIwY2xhc3Nyb29tJTIwbWVuJTIwbGVhcm5pbmclMjBOYWlyb2JpfGVufDF8fHx8MTc5MTY0MTM2Mnww&ixlib=rb-4.1.0&q=80&w=1080";
@@ -69,7 +74,7 @@ const events = [
   { title: "Testimony Tuesday & Bible Study", meta: "Every Tuesday · 5:30 PM · Freeway Cafe`" },
   { title: "Wednesday Dinner & Bible Study", meta: "Every Wednesday · 6:00 PM · Church Fellowship Hall" }, 
   { title: "Friday Womens Bible Study", meta: "Every Friday · 6:00 PM · Church Fellowship Hall"},
-  { month: "OCT", day: "30", title: "Trunk or Treat", meta: "Saturday · 4:00-8:00 PM · Meet at the church" },
+  { month: "OCT", day: "30", title: "Trunk or Treat", meta: "Friday · 4:00–8:00 PM · Around back at the church" },
 ];
 
 const aboutStories = [
@@ -120,6 +125,34 @@ const leadership = [
   },
 
 ];
+
+const memorials = [
+  {
+    image: haroldMcKaughanMemorial,
+    alt: "Celebrating the life of Harold Eugene McKaughan",
+    name: "Harold Eugene McKaughan",
+    years: "August 5, 1938 — October 9, 2026",
+    role: "Longtime board member",
+    text: "A faithful servant whose steady presence and years of service helped guide Dawson and care for our church family.",
+  },
+  {
+    image: danielNorgrenMemorial,
+    alt: "Celebrating the life of Daniel Adrian Norgren",
+    name: "Daniel Adrian Norgren",
+    years: "August 17, 1972 — January 23, 2026",
+    role: "Beloved deacon",
+    text: "Remembered with love for his servant's heart, his kindness, and his devotion to the people of Dawson.",
+  },
+  {
+    image: barbaraWebsterMemorial,
+    alt: "In loving memory of Barbara Jean Webster",
+    name: "Barbara Jean Webster",
+    years: "March 15, 1945 — July 17, 2026",
+    role: "Longtime pianist",
+    text: "Her faithful music ministry helped shape our worship and filled our little church with beauty for many years.",
+  },
+];
+
 const members = [
   {
 
@@ -258,6 +291,41 @@ export default function App() {
           </div>
         </section>
 
+        <section className="overflow-hidden bg-evergreen py-20 text-white lg:py-28" id="mrs-kay">
+          <div className="site-container grid items-center gap-14 lg:grid-cols-[0.85fr_1.15fr] lg:gap-24">
+            <div>
+              <p className="eyebrow text-sand">With heartfelt thanks</p>
+              <h2 className="section-title mt-4">Mrs. Kay, the heart of our church.</h2>
+              <p className="mt-7 max-w-xl text-lg leading-8 text-white/70">
+                Our church family wrote this letter to honor Mrs. Kay Phillips and the countless ways she quietly cares for Dawson week after week.
+              </p>
+              <blockquote className="kay-quote mt-8 border-l-2 border-gold pl-6 font-serif text-2xl leading-relaxed text-white/90">
+                “Christ&apos;s love shines through you in everything you do. You make our little church feel like family and home to us all.”
+              </blockquote>
+              <p className="mt-5 text-sm font-bold uppercase tracking-widest text-sand">
+                Your Dawson FWB Church family
+              </p>
+              <a className="button button-gold mt-9" href={letterToMrsKay} rel="noreferrer" target="_blank">
+                Read the full letter <ArrowIcon />
+              </a>
+            </div>
+
+            <a
+              aria-label="Open the full letter to Mrs. Kay"
+              className="letter-frame mx-auto block w-full max-w-xl"
+              href={letterToMrsKay}
+              rel="noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="A handwritten letter of gratitude from the Dawson church family to Mrs. Kay Phillips"
+                className="w-full"
+                src={letterToMrsKay}
+              />
+            </a>
+          </div>
+        </section>
+
         <section className="relative overflow-hidden py-24 lg:py-32" id="about">
           <div className="site-container grid items-center gap-16 lg:grid-cols-2 lg:gap-24">
             <div className="about-stack-wrap mx-auto w-full max-w-lg lg:mx-0">
@@ -369,6 +437,38 @@ export default function App() {
           </div>
         </section>
 
+        <section className="bg-cream py-24 lg:py-28" id="remembrance">
+          <div className="site-container">
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="eyebrow text-fern">In loving memory</p>
+              <h2 className="section-title mt-4">Faithful lives we will always remember.</h2>
+              <p className="mt-6 text-lg leading-8 text-muted">
+                We give thanks for three cherished members of our Dawson family whose love, service, and faith left a lasting mark on our church.
+              </p>
+            </div>
+
+            <div className="mt-14 grid gap-6 lg:grid-cols-3">
+              {memorials.map((memorial) => (
+                <article className="memorial-card overflow-hidden bg-white" key={memorial.name}>
+                  <div className="memorial-image-wrap">
+                    <img alt={memorial.alt} className="h-full w-full object-contain" src={memorial.image} />
+                  </div>
+                  <div className="border-t border-line p-7 lg:p-8">
+                    <p className="text-xs font-bold uppercase tracking-[0.18em] text-fern">{memorial.role}</p>
+                    <h3 className="mt-3 font-serif text-3xl leading-tight">{memorial.name}</h3>
+                    <p className="mt-3 text-sm font-semibold text-muted">{memorial.years}</p>
+                    <p className="mt-5 leading-7 text-muted">{memorial.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <p className="mx-auto mt-12 max-w-2xl text-center font-serif text-2xl italic leading-relaxed text-evergreen">
+              “Well done, good and faithful servant.”
+            </p>
+          </div>
+        </section>
+
         <section className="bg-evergreen py-24 text-white lg:py-28" id="ministries">
           <div className="site-container">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
@@ -477,7 +577,7 @@ export default function App() {
             </div>
             <div className="divide-y divide-line border-y border-line">
               {events.map((event) => (
-                <a className="event-row group" href="#events" key={event.title}>
+                <a className="event-row group" href={event.title === "Trunk or Treat" ? "#trunk-or-treat" : "#events"} key={event.title}>
                   <div className="w-14 text-center">
                     <p className="text-[11px] font-bold tracking-widest text-fern">{event.month}</p>
                     <p className="font-serif text-3xl">{event.day}</p>
@@ -492,6 +592,37 @@ export default function App() {
                 </a>
               ))}
             </div>
+
+            <article className="event-feature overflow-hidden bg-cream lg:col-span-2" id="trunk-or-treat">
+              <div className="event-flyer-wrap">
+                <img
+                  alt="Trunk or Treat at Dawson Free Will Baptist Church, Friday October 30 from 4 to 8 PM"
+                  className="h-full w-full object-contain"
+                  src={trunkOrTreatFlyer}
+                />
+              </div>
+              <div className="flex flex-col justify-center p-8 sm:p-12 lg:p-16">
+                <p className="eyebrow text-fern">Featured community event</p>
+                <h3 className="mt-4 font-serif text-4xl leading-tight md:text-5xl">Trunk or Treat</h3>
+                <p className="mt-4 text-sm font-bold uppercase tracking-widest text-evergreen">
+                  Friday, October 30 · 4:00–8:00 PM
+                </p>
+                <p className="mt-6 max-w-xl text-lg leading-8 text-muted">
+                  Bring the whole family for a safe and fun evening with games, food, plenty of candy, and more. Everyone is welcome.
+                </p>
+                <div className="mt-7 border-l-2 border-gold pl-5">
+                  <p className="font-bold text-evergreen">Dawson Free Will Baptist Church</p>
+                  <p className="mt-1 leading-7 text-muted">
+                    2044 N Darlington Pl, Tulsa, OK 74115
+                    <br />
+                    Join us around back.
+                  </p>
+                </div>
+                <a className="button button-dark mt-8 self-start" href={directionsUrl} rel="noreferrer" target="_blank">
+                  Get directions <ArrowIcon />
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
